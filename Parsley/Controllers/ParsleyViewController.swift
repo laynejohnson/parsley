@@ -16,7 +16,7 @@ class ParsleyViewController: UITableViewController {
         // Do any additional setup after loading the view.
     }
     
-    // MARK: Tableview Datasource Methods
+    // MARK: - Tableview Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
