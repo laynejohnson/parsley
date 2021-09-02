@@ -86,5 +86,19 @@ class ParsleyViewController: UITableViewController {
         
     }
     
-    
+    // MARK: - User Defaults
+    /*
+     // User defaults:
+     // Create new default
+     let defaults = UserDefaults.standard
+     
+     // Save updated array to user defaults
+     defaults.set(self.itemArray, forKey: "TodoListArray")
+     
+     // User defaults are stored in plist files as key:value pairs; can be retrieved by key
+     // Set array to array in user defaults (viewDidLoad)
+     if let items = defaults.array(forKey: "TodoListArray") as! [String] {
+     itemArray = items
+     }
+     */
 }
