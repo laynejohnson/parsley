@@ -9,14 +9,30 @@ import UIKit
 
 class ParsleyViewController: UITableViewController {
     
-    var itemArray = ["Go to market","Repot plants","Overwinter Harley","Harvest parsley",]
+    var itemArray = [Item]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        var newItem = Item()
+        newItem.title = "Go to market"
+        itemArray.append(newItem)
+        
+        var newItem2 = Item()
+        newItem.title = "Repot plants"
+        itemArray.append(newItem2)
+        
+        var newItem3 = Item()
+        newItem.title = "Overwinter Harley"
+        itemArray.append(newItem3)
+        
+        var newItem4 = Item()
+        newItem.title = "Water parsley"
+        itemArray.append(newItem4)
     }
     
-    // MARK - Tableview Datasource Methods
+    // MARK: - Tableview Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -29,7 +45,7 @@ class ParsleyViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemCell", for: indexPath)
         
         // Fetch data for the row.
-        let item = itemArray[indexPath.row]
+        let item = itemArray[indexPath.row].title
         
         // Configure cell's contents.
         cell.textLabel?.text = item
@@ -37,7 +53,7 @@ class ParsleyViewController: UITableViewController {
         return cell
     }
     
-    // MARK - Tableview Delegate Methods
+    // MARK: - Tableview Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -57,7 +73,7 @@ class ParsleyViewController: UITableViewController {
         //        print(itemArray[indexPath.row])
     }
     
-    // MARK - Add New Items
+    // MARK: - Add New Items
     
     @IBAction func addItem(_ sender: UIBarButtonItem) {
         
@@ -68,7 +84,9 @@ class ParsleyViewController: UITableViewController {
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
             
             // Action when user clicks the add button
-            self.itemArray.append(textField.text!)
+            let newItem = Item()
+            newItem.title = textField.text!
+            self.itemArray.append(newItem)
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()

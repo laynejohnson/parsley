@@ -19,6 +19,7 @@
 		E87B8F8B26E110D3008B185B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E87B8F8A26E110D3008B185B /* README.md */; };
 		E87B8F8C26E110D3008B185B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E87B8F8A26E110D3008B185B /* README.md */; };
 		E87B8F8D26E110D3008B185B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E87B8F8A26E110D3008B185B /* README.md */; };
+		E87B8F9226E16681008B185B /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87B8F9126E16681008B185B /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		E873F86A26DF9E4A00700F3F /* ParsleyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsleyUITests.swift; sourceTree = "<group>"; };
 		E873F86C26DF9E4A00700F3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E87B8F8A26E110D3008B185B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E87B8F9126E16681008B185B /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		E87B8F8E26E11114008B185B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E87B8F9126E16681008B185B /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E87B8F9226E16681008B185B /* Item.swift in Sources */,
 				E873F85026DF9E4800700F3F /* Parsley.xcdatamodeld in Sources */,
 				E873F84A26DF9E4800700F3F /* ParsleyViewController.swift in Sources */,
 				E873F84626DF9E4800700F3F /* AppDelegate.swift in Sources */,
