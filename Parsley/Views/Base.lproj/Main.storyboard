@@ -30,7 +30,14 @@
                             <outlet property="delegate" destination="SbI-jK-eiu" id="Z3Q-Qw-pwy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Parsley" id="bfQ-NO-JqB"/>
+                    <navigationItem key="navigationItem" title="Parsley" id="bfQ-NO-JqB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Lau-SP-EA9">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addItem:" destination="SbI-jK-eiu" id="Kjl-h9-oNB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Zs-ys-APQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
