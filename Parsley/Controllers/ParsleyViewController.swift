@@ -16,7 +16,7 @@ class ParsleyViewController: UITableViewController {
         // Do any additional setup after loading the view.
     }
     
-    // MARK: - Tableview Datasource Methods
+    // MARK - Tableview Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -36,5 +36,24 @@ class ParsleyViewController: UITableViewController {
         
         return cell
     }
-}
+    
+    // MARK - Tableview Delegate Methods
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+//        print(itemArray[indexPath.row])
+    
+        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+        } else {
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        
+//        print(itemArray[indexPath.row])
+    }
+}
