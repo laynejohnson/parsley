@@ -16,6 +16,9 @@
 		E873F85526DF9E4900700F3F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E873F85326DF9E4900700F3F /* LaunchScreen.storyboard */; };
 		E873F86026DF9E4A00700F3F /* ParsleyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873F85F26DF9E4A00700F3F /* ParsleyTests.swift */; };
 		E873F86B26DF9E4A00700F3F /* ParsleyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873F86A26DF9E4A00700F3F /* ParsleyUITests.swift */; };
+		E87B8F8B26E110D3008B185B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E87B8F8A26E110D3008B185B /* README.md */; };
+		E87B8F8C26E110D3008B185B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E87B8F8A26E110D3008B185B /* README.md */; };
+		E87B8F8D26E110D3008B185B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E87B8F8A26E110D3008B185B /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,7 @@
 		E873F86626DF9E4A00700F3F /* ParsleyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ParsleyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E873F86A26DF9E4A00700F3F /* ParsleyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsleyUITests.swift; sourceTree = "<group>"; };
 		E873F86C26DF9E4A00700F3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E87B8F8A26E110D3008B185B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		E873F83926DF9E4800700F3F = {
 			isa = PBXGroup;
 			children = (
+				E87B8F8A26E110D3008B185B /* README.md */,
 				E873F84426DF9E4800700F3F /* Parsley */,
 				E873F85E26DF9E4A00700F3F /* ParsleyTests */,
 				E873F86926DF9E4A00700F3F /* ParsleyUITests */,
@@ -236,6 +241,7 @@
 			files = (
 				E873F85526DF9E4900700F3F /* LaunchScreen.storyboard in Resources */,
 				E873F85226DF9E4900700F3F /* Assets.xcassets in Resources */,
+				E87B8F8B26E110D3008B185B /* README.md in Resources */,
 				E873F84D26DF9E4800700F3F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,6 +250,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E87B8F8C26E110D3008B185B /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E87B8F8D26E110D3008B185B /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
