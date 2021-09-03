@@ -15,19 +15,19 @@ class ParsleyViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        var newItem = Item()
+        let newItem = Item()
         newItem.title = "Go to market"
         itemArray.append(newItem)
         
-        var newItem2 = Item()
+        let newItem2 = Item()
         newItem.title = "Repot plants"
         itemArray.append(newItem2)
         
-        var newItem3 = Item()
+        let newItem3 = Item()
         newItem.title = "Overwinter Harley"
         itemArray.append(newItem3)
         
-        var newItem4 = Item()
+        let newItem4 = Item()
         newItem.title = "Water parsley"
         itemArray.append(newItem4)
     }
@@ -51,7 +51,7 @@ class ParsleyViewController: UITableViewController {
         cell.textLabel?.text = item.title
         
         cell.accessoryType = item.done ? .checkmark : .none
-  
+        
         return cell
     }
     
@@ -104,20 +104,62 @@ class ParsleyViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
         
     }
-    
-    // MARK: - User Defaults
-    /*
-     // User defaults:
-     // Create new default
-     let defaults = UserDefaults.standard
-     
-     // Save updated array to user defaults
-     defaults.set(self.itemArray, forKey: "TodoListArray")
-     
-     // User defaults are stored in plist files as key:value pairs; can be retrieved by key
-     // Set array to array in user defaults (viewDidLoad)
-     if let items = defaults.array(forKey: "TodoListArray") as! [String] {
-     itemArray = items
-     }
-     */
 }
+
+// MARK: - User Defaults
+/*
+ // User defaults:
+ // Create new default
+ let defaults = UserDefaults.standard
+ 
+ // Save updated array to user defaults
+ defaults.set(self.itemArray, forKey: "TodoListArray")
+ 
+ // User defaults are stored in plist files as key:value pairs; can be retrieved by key
+ // Set array to array in user defaults (viewDidLoad)
+ if let items = defaults.array(forKey: "TodoListArray") as! [String] {
+ itemArray = items
+ }
+ */
+
+// MARK: - NS Coder
+
+/*
+ // Encoding data with NS Coder:
+ // Class must conform to Encodable protocol; item type is now able to encode itself into a plist or JSON; all properties must have standard data types (cannot use property with custom class inside class)
+ // Can initilize multiple custom plists
+ 
+ // Create file path
+ let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
+ 
+ // Create encoder
+ let encoder = PropertyListEncoder()
+ 
+ // Encode data
+ func saveData() {
+ do {
+ let data = try encoder.encode(itemArray)
+ // Write data to file path
+ try data.write(to: dataFilePath!)
+ } catch {
+ print("Error encoding item array, \(error)")
+ }
+ }
+ 
+ // Decode data, class must conform to Decodable protocol (Encodable + Decodable = Codable)
+ // In viewDidLoad
+ loadItems()
+ 
+ // Func
+ func loadItems() {
+ if let data = try? Data(contentsOf: dataFilePath!) {
+ let decoder = PropertyListDecoder()
+ 
+ do {
+ itemArray = try decoder.decode([Item].self, from: data)
+ } catch {
+ print("Error decoding item array \(error)")
+ }
+ }
+ }
+ */
