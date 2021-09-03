@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ParsleyViewController: UITableViewController, UISearchBarDelegate {
+class ParsleyViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -23,6 +23,8 @@ class ParsleyViewController: UITableViewController, UISearchBarDelegate {
         // Do any additional setup after loading the view.
         
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        
+        searchBar.delegate = self
         
         loadItems()
         
@@ -152,7 +154,38 @@ class ParsleyViewController: UITableViewController, UISearchBarDelegate {
         // Save changes.
         saveItems()
     }
-} // End ViewController
+    
+    // MARK: - End ParlseyViewController
+}
+
+// MARK: - Search Bar Delegate Methods
+
+extension ParsleyViewController: UISearchBarDelegate {
+   
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // Reload table view with search text.
+        
+        // Create data request.
+        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        
+        // Create NSPredicate query.
+        request.predicate = NSPredicate(format: "title CONTAINS [cd] %@", searchBar.text!)
+        
+        // Sort results.
+        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+
+        do {
+            itemArray = try context.fetch(request)
+        } catch{
+            print("Error fetching data from context \(error)")
+        }
+        
+        tableView.reloadData()
+        
+    }
+    
+    
+}
 
 // MARK: - User Defaults
 /*
