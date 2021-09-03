@@ -69,19 +69,19 @@ class ParsleyViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-     // TODO: Implement swipe to edit/delete.
-//    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-//        // Swipe actions to display on the leading edge of the row.
-//
-//        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { action, view, true in
-//            print("Delete action tapped")
-//
-//        }
-//
-//        let configuration = UISwipeActionsConfiguration(actions: deleteAction)
-//        return configuration
-//
-//    }
+    // TODO: Implement swipe to edit/delete.
+    //    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    //        // Swipe actions to display on the leading edge of the row.
+    //
+    //        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { action, view, true in
+    //            print("Delete action tapped")
+    //
+    //        }
+    //
+    //        let configuration = UISwipeActionsConfiguration(actions: deleteAction)
+    //        return configuration
+    //
+    //    }
     
     
     // MARK: - Add New Items
@@ -133,18 +133,22 @@ class ParsleyViewController: UITableViewController {
         }
     }
     
-    func loadItems() {
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
+        // Item.fetchRequest() is the default value.
         
-        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        //        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        
         do {
             itemArray = try context.fetch(request)
         } catch{
             print("Error fetching data from context \(error)")
         }
+        
+        tableView.reloadData()
     }
     
     func deleteItem(indexPath: IndexPath) {
-
+        
         // Delete item from context.
         context.delete(itemArray[indexPath.row])
         
@@ -161,30 +165,42 @@ class ParsleyViewController: UITableViewController {
 // MARK: - Search Bar Delegate Methods
 
 extension ParsleyViewController: UISearchBarDelegate {
-   
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // Reload table view with search text.
         
-        // Create data request.
-        let request : NSFetchRequest<Item> = Item.fetchRequest()
-        
-        // Create NSPredicate query.
-        request.predicate = NSPredicate(format: "title CONTAINS [cd] %@", searchBar.text!)
-        
-        // Sort results.
-        request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-
-        do {
-            itemArray = try context.fetch(request)
-        } catch{
-            print("Error fetching data from context \(error)")
+        if searchBar.text == "" {
+            
+            loadItems()
+            
+        } else {
+            
+            // Create data request.
+            let request : NSFetchRequest<Item> = Item.fetchRequest()
+            
+            // Create NSPredicate query.
+            request.predicate = NSPredicate(format: "title CONTAINS [cd] %@", searchBar.text!)
+            
+            // Sort results.
+            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
+            
+            // Load items.
+            loadItems(with: request)
+            
         }
-        
-        tableView.reloadData()
-        
     }
     
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            
+            loadItems()
+            
+            DispatchQueue.main.async {
+                // Dismiss keyboard.
+                searchBar.resignFirstResponder()
+            }
+        }
+    }
 }
 
 // MARK: - User Defaults
