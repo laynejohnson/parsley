@@ -45,11 +45,13 @@ class ParsleyViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemCell", for: indexPath)
         
         // Fetch data for the row.
-        let item = itemArray[indexPath.row].title
+        let item = itemArray[indexPath.row]
         
         // Configure cell's contents.
-        cell.textLabel?.text = item
+        cell.textLabel?.text = item.title
         
+        cell.accessoryType = item.done ? .checkmark : .none
+  
         return cell
     }
     
@@ -59,11 +61,10 @@ class ParsleyViewController: UITableViewController {
         
         //        print(itemArray[indexPath.row])
         
-        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .none
-        } else {
-            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
-        }
+        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        
+        // Call datasource method again to refresh data
+        tableView.reloadData()
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
