@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
 class ParsleyViewController: UITableViewController {
+    
+    // Access to app delegate as an object to access persistentContainer (singleton)
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var itemArray = [Item]()
     
@@ -15,21 +19,6 @@ class ParsleyViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let newItem = Item()
-        newItem.title = "Go to market"
-        itemArray.append(newItem)
-        
-        let newItem2 = Item()
-        newItem.title = "Repot plants"
-        itemArray.append(newItem2)
-        
-        let newItem3 = Item()
-        newItem.title = "Overwinter Harley"
-        itemArray.append(newItem3)
-        
-        let newItem4 = Item()
-        newItem.title = "Water parsley"
-        itemArray.append(newItem4)
     }
     
     // MARK: - Tableview Datasource Methods
@@ -82,16 +71,20 @@ class ParsleyViewController: UITableViewController {
         
         let alert = UIAlertController(title: "Add New Todo", message: "", preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "Add", style: .default) { (action) in
+        let action = UIAlertAction(title: "Add", style: .default) { [self] (action) in
             
             // Action when user clicks the add button
-            let newItem = Item()
+            // Create new item
+            let newItem = Item(context: self.context)
             newItem.title = textField.text!
+            newItem.done = false
+            
+            // Add new item to array
             self.itemArray.append(newItem)
             
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            self.saveItems()
+            self.tableView.reloadData()
+            
         }
         
         alert.addTextField { alertTextField in
@@ -104,7 +97,24 @@ class ParsleyViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
         
     }
-}
+    // MARK: - Data Manipulation Methods
+    
+    func saveItems() {
+        
+        // Transfer data from context stagin area into persistent container
+        do {
+            try context.save()
+        } catch {
+            print("Error saving context: \(error)")
+        }
+        
+        self.tableView.reloadData()
+    }
+    
+    
+    
+    
+} // End ViewController
 
 // MARK: - User Defaults
 /*
