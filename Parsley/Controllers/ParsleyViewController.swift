@@ -15,14 +15,14 @@ class ParsleyViewController: UITableViewController {
     // Access to app delegate as an object to access persistentContainer (singleton).
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    // Initialize array to hold data from Core Data.
+    // Initialize array to hold data.
     var itemArray = [Item]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
         searchBar.delegate = self
         

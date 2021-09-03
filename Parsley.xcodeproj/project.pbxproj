@@ -19,6 +19,8 @@
 		E87B8F8B26E110D3008B185B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E87B8F8A26E110D3008B185B /* README.md */; };
 		E87B8F8C26E110D3008B185B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E87B8F8A26E110D3008B185B /* README.md */; };
 		E87B8F8D26E110D3008B185B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E87B8F8A26E110D3008B185B /* README.md */; };
+		E890634126E262B2000F311F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890634026E262B2000F311F /* Constants.swift */; };
+		E890634326E2630C000F311F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890634226E2630C000F311F /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		E873F86A26DF9E4A00700F3F /* ParsleyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsleyUITests.swift; sourceTree = "<group>"; };
 		E873F86C26DF9E4A00700F3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E87B8F8A26E110D3008B185B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E890634026E262B2000F311F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E890634226E2630C000F311F /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,7 @@
 				E87B8F9026E11126008B185B /* Controllers */,
 				E873F84526DF9E4800700F3F /* AppDelegate.swift */,
 				E873F84726DF9E4800700F3F /* SceneDelegate.swift */,
+				E890634026E262B2000F311F /* Constants.swift */,
 				E873F85126DF9E4900700F3F /* Assets.xcassets */,
 				E873F85326DF9E4900700F3F /* LaunchScreen.storyboard */,
 				E873F85626DF9E4900700F3F /* Info.plist */,
@@ -155,6 +160,7 @@
 		E87B8F9026E11126008B185B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E890634226E2630C000F311F /* ListViewController.swift */,
 				E873F84926DF9E4800700F3F /* ParsleyViewController.swift */,
 			);
 			path = Controllers;
@@ -293,9 +299,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E890634126E262B2000F311F /* Constants.swift in Sources */,
 				E873F85026DF9E4800700F3F /* Parsley.xcdatamodeld in Sources */,
 				E873F84A26DF9E4800700F3F /* ParsleyViewController.swift in Sources */,
 				E873F84626DF9E4800700F3F /* AppDelegate.swift in Sources */,
+				E890634326E2630C000F311F /* ListViewController.swift in Sources */,
 				E873F84826DF9E4800700F3F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
