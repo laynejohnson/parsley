@@ -20,7 +20,6 @@ class ListViewController: UITableViewController {
         super.viewDidLoad()
         
         loadCategories()
-
     }
 
     // MARK: - Table View Data Source Methods
@@ -32,20 +31,31 @@ class ListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        // Provide a cell object for each row.
+        // Create a reusable cell object for each row.
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath)
         
-        // Fetch data for the row.
-        let list = listArray[indexPath.row]
-        
         // Configure cell contents.
-        cell.textLabel?.text = list.name
+        cell.textLabel?.text = listArray[indexPath.row].name
         
         return cell
     }
     
     // MARK: - TableView Delegate Methods
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: Constants.Segues.itemsList, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destinationVC = segue.destination as! ParsleyViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            
+            destinationVC.selectedList = listArray[indexPath.row]
+        }
+    }
     
     
     
@@ -73,10 +83,13 @@ class ListViewController: UITableViewController {
     
     func deleteList(indexPath: IndexPath) {
         
+        // Remove list from context.
         context.delete(listArray[indexPath.row])
         
+        // Remove list from listArray.
         listArray.remove(at: indexPath.row)
         
+        // Update database.
         saveData()
     }
     
@@ -101,10 +114,10 @@ class ListViewController: UITableViewController {
             
             // Reload table view.
             self.tableView.reloadData()
-            
         }
         
         alert.addTextField { alertTextField in
+            
             alertTextField.placeholder = "Create New List"
             textField = alertTextField
         }

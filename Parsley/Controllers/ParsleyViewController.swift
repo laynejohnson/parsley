@@ -18,6 +18,14 @@ class ParsleyViewController: UITableViewController {
     // Initialize array to hold data.
     var itemArray = [Item]()
     
+    var selectedList : List? {
+        
+        // didSet keyword code block happens as soon as selectedList is set with value.
+        didSet {
+            loadItems()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -25,8 +33,6 @@ class ParsleyViewController: UITableViewController {
 //        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
         searchBar.delegate = self
-        
-        loadItems()
         
     }
     
@@ -99,6 +105,7 @@ class ParsleyViewController: UITableViewController {
             let newItem = Item(context: self.context)
             newItem.title = textField.text!
             newItem.done = false
+            newItem.parentCategory = self.selectedList
             
             // Add new item to array.
             self.itemArray.append(newItem)
@@ -133,11 +140,18 @@ class ParsleyViewController: UITableViewController {
         }
     }
     
-    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest()) {
+    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest(), predicate: NSPredicate? = nil) {
         // Item.fetchRequest() is the default value.
         
-        //        let request : NSFetchRequest<Item> = Item.fetchRequest()
+        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedList!.name!)
         
+        if let additionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, additionalPredicate])
+            
+        } else {
+            request.predicate = categoryPredicate
+        }
+
         do {
             itemArray = try context.fetch(request)
         } catch{
@@ -179,13 +193,13 @@ extension ParsleyViewController: UISearchBarDelegate {
             let request : NSFetchRequest<Item> = Item.fetchRequest()
             
             // Create NSPredicate query.
-            request.predicate = NSPredicate(format: "title CONTAINS [cd] %@", searchBar.text!)
+            let predicate = NSPredicate(format: "title CONTAINS [cd] %@", searchBar.text!)
             
             // Sort results.
             request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
             
             // Load items.
-            loadItems(with: request)
+            loadItems(with: request, predicate: predicate)
             
         }
     }
