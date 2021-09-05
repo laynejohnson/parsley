@@ -82,9 +82,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="Bwy-X9-agV">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListCell" id="v0c-Du-D1b">
-                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="68.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v0c-Du-D1b" id="ySi-06-CyA">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -106,6 +111,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="1jJ-nF-S5y" id="YmS-FC-M8O"/>
+                        <outlet property="searchBar" destination="Bwy-X9-agV" id="V2g-2g-PtQ"/>
                         <segue destination="SbI-jK-eiu" kind="show" identifier="GoToItems" id="yKP-pu-XqY"/>
                     </connections>
                 </tableViewController>

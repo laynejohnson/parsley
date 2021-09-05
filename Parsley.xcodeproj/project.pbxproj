@@ -160,8 +160,8 @@
 		E87B8F9026E11126008B185B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E873F84926DF9E4800700F3F /* ParsleyViewController.swift */,
 				E890634226E2630C000F311F /* ListViewController.swift */,
+				E873F84926DF9E4800700F3F /* ParsleyViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

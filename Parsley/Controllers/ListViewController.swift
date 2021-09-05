@@ -10,8 +10,10 @@ import CoreData
 
 class ListViewController: UITableViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
+    // Create a reference to the persistent container context.
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var listArray = [List]()
@@ -21,11 +23,11 @@ class ListViewController: UITableViewController {
         
         loadCategories()
     }
-
+    
     // MARK: - Table View Data Source Methods
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-     
+        
         return listArray.count
     }
     
@@ -60,22 +62,33 @@ class ListViewController: UITableViewController {
     
     
     // MARK: - Data Manipulation Methods
-
+    
     func saveData() {
         
-        do {
-            try context.save()
-        } catch {
-            print("There was an error saving context: \(error)")
+        // TODO: Verify that this setup is appropriate.
+        if context.hasChanges {
+            
+            do {
+                try context.save()
+            } catch {
+                print("There was an error saving context: \(error)")
+            }
+        } else {
+            print("There are no changes to save.")
         }
     }
     
-    func loadCategories(with request : NSFetchRequest<List> = List.fetchRequest()) {
+    func loadCategories(with request: NSFetchRequest<List> = List.fetchRequest(), predicate: NSPredicate? = nil) {
+        // Item.fetchRequest() is the default value.
+        
+        let predicate = NSPredicate(format: "name CONTAINS %@", searchBar!.text!)
+        
+        request.predicate = predicate
         
         do {
             listArray = try context.fetch(request)
-        } catch {
-            print("There was an error fetching context: \(error)")
+        } catch{
+            print("Error fetching data from context \(error)")
         }
         
         tableView.reloadData()
@@ -102,14 +115,14 @@ class ListViewController: UITableViewController {
         let action = UIAlertAction(title: "Create", style: .default) { [self] (action) in
             
             // Action when user clicks the add button.
-            // Create new item.
+            // Create new list.
             let newList = List(context: self.context)
             newList.name = textField.text!
             
-            // Add new item to array.
+            // Add new list to array.
             self.listArray.append(newList)
             
-            // Save item to db.
+            // Save list to db.
             self.saveData()
             
             // Reload table view.
@@ -125,5 +138,46 @@ class ListViewController: UITableViewController {
         alert.addAction(action)
         
         present(alert, animated: true, completion: nil)
+    }
+}
+
+extension ListViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // Reload table view with search text.
+        
+        if searchBar.text == "" {
+            
+            loadCategories()
+            
+        } else {
+            
+            print(searchBar.text!)
+            
+            // Create data request.
+            let request : NSFetchRequest<List> = List.fetchRequest()
+            
+            // Create NSPredicate query.
+            let predicate = NSPredicate(format: "name CONTAINS [cd] %@", searchBar.text!)
+            
+            // Sort results.
+            request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
+            
+            // Load items.
+            loadCategories(with: request, predicate: predicate)
+            
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text?.count == 0 {
+            
+            loadCategories()
+            
+            DispatchQueue.main.async {
+                // Dismiss keyboard.
+                searchBar.resignFirstResponder()
+            }
+        }
     }
 }
