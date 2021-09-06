@@ -75,21 +75,6 @@ class ParsleyViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    // TODO: Implement swipe to edit/delete.
-    //    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    //        // Swipe actions to display on the leading edge of the row.
-    //
-    //        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { action, view, true in
-    //            print("Delete action tapped")
-    //
-    //        }
-    //
-    //        let configuration = UISwipeActionsConfiguration(actions: deleteAction)
-    //        return configuration
-    //
-    //    }
-    
-    
     // MARK: - Add New Items
     
     @IBAction func addItem(_ sender: UIBarButtonItem) {
@@ -98,6 +83,7 @@ class ParsleyViewController: UITableViewController {
         
         let alert = UIAlertController(title: "Add New Todo", message: "", preferredStyle: .alert)
         
+        // TODO: Add validation for text field.
         let action = UIAlertAction(title: "Add", style: .default) { [self] (action) in
             
             // Action when user clicks the add button.

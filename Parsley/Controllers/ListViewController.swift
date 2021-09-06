@@ -42,6 +42,25 @@ class ListViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+        if editingStyle == .delete {
+            
+            // Remove list from context.
+            context.delete(listArray[indexPath.row])
+            
+            // Remove list from listArray.
+            listArray.remove(at: indexPath.row)
+            
+            // Update database.
+            saveData()
+            
+            // Reload tableview.
+            tableView.reloadData()
+        }
+    }
+    
+    
     // MARK: - TableView Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -58,8 +77,6 @@ class ListViewController: UITableViewController {
             destinationVC.selectedList = listArray[indexPath.row]
         }
     }
-    
-    
     
     // MARK: - Data Manipulation Methods
     
@@ -81,11 +98,14 @@ class ListViewController: UITableViewController {
     func loadCategories(with request: NSFetchRequest<List> = List.fetchRequest(), predicate: NSPredicate? = nil) {
         // Item.fetchRequest() is the default value.
         
-        let predicate = NSPredicate(format: "name CONTAINS %@", searchBar!.text!)
-        
+        //        // Case and diacritic insensitive lookup [cd].
+        //        let predicate = NSPredicate(format: "name CONTAINS [cd] %@", searchBar!.text!)
+        //
         request.predicate = predicate
         
         do {
+            // Returns an array of objects that meet the criteria specified by a given fetch request.
+            // Save contents of fetch request to array.
             listArray = try context.fetch(request)
         } catch{
             print("Error fetching data from context \(error)")
@@ -94,17 +114,17 @@ class ListViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    func deleteList(indexPath: IndexPath) {
-        
-        // Remove list from context.
-        context.delete(listArray[indexPath.row])
-        
-        // Remove list from listArray.
-        listArray.remove(at: indexPath.row)
-        
-        // Update database.
-        saveData()
-    }
+//    func deleteList(indexPath: IndexPath) {
+//
+//        // Remove list from context.
+//        context.delete(listArray[indexPath.row])
+//
+//        // Remove list from listArray.
+//        listArray.remove(at: indexPath.row)
+//
+//        // Update database.
+//        saveData()
+//    }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
@@ -112,6 +132,7 @@ class ListViewController: UITableViewController {
         
         let alert = UIAlertController(title: "Create New List", message: "", preferredStyle: .alert)
         
+        // TODO: Add validiation for text field
         let action = UIAlertAction(title: "Create", style: .default) { [self] (action) in
             
             // Action when user clicks the add button.
@@ -139,7 +160,11 @@ class ListViewController: UITableViewController {
         
         present(alert, animated: true, completion: nil)
     }
-}
+    
+    
+    
+    
+} // End ListViewController
 
 extension ListViewController: UISearchBarDelegate {
     
