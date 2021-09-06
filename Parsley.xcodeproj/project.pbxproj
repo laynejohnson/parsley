@@ -117,7 +117,6 @@
 				E873F84726DF9E4800700F3F /* SceneDelegate.swift */,
 				E890634026E262B2000F311F /* Constants.swift */,
 				E873F85126DF9E4900700F3F /* Assets.xcassets */,
-				E873F85326DF9E4900700F3F /* LaunchScreen.storyboard */,
 				E873F85626DF9E4900700F3F /* Info.plist */,
 			);
 			path = Parsley;
@@ -152,6 +151,7 @@
 		E87B8F8F26E1111B008B185B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E873F85326DF9E4900700F3F /* LaunchScreen.storyboard */,
 				E873F84B26DF9E4800700F3F /* Main.storyboard */,
 			);
 			path = Views;

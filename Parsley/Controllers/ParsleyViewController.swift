@@ -30,7 +30,20 @@ class ParsleyViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
+        // Configure search bar appearance.
+        
+        // Set search bar icon color.
+        searchBar.searchTextField.leftView?.tintColor = .black
+        
+        // Set search bar text color.
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.textColor = UIColor.black
+        }
+    
+        // Set search bar background color.
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9647058824, blue: 0.9411764706, alpha: 1)
+        }
         
         searchBar.delegate = self
         
@@ -54,6 +67,9 @@ class ParsleyViewController: UITableViewController {
         // Configure cell's contents.
         cell.textLabel?.text = item.title
         
+        // Set cell text color.
+        cell.textLabel?.textColor = UIColor.black
+        
         cell.accessoryType = item.done ? .checkmark : .none
         
         return cell
@@ -73,6 +89,24 @@ class ParsleyViewController: UITableViewController {
         
         // Deselect row (remove highlight) after selection.
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+        if editingStyle == .delete {
+            
+            // Remove item from context.
+            context.delete(itemArray[indexPath.row])
+            
+            // Remove item from listArray.
+            itemArray.remove(at: indexPath.row)
+            
+            // Update database.
+            saveItems()
+            
+            // Reload tableView.
+            tableView.reloadData()
+        }
     }
     
     // MARK: - Add New Items
@@ -165,7 +199,7 @@ class ParsleyViewController: UITableViewController {
 // MARK: - Search Bar Delegate Methods
 
 extension ParsleyViewController: UISearchBarDelegate {
-    
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // Reload table view with search text.
         

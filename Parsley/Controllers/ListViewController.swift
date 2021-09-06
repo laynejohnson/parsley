@@ -21,6 +21,22 @@ class ListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Configure search bar appearance.
+        
+        // Set search bar icon color.
+        searchBar.searchTextField.leftView?.tintColor = .black
+        
+        // Set search bar text color.
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.textColor = UIColor.black
+        }
+    
+        // Set search bar background color.
+        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
+            textfield.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9647058824, blue: 0.9411764706, alpha: 1)
+        }
+        
+        // Load data.
         loadCategories()
     }
     
@@ -39,11 +55,21 @@ class ListViewController: UITableViewController {
         // Configure cell contents.
         cell.textLabel?.text = listArray[indexPath.row].name
         
+        // Set cell text color.
+        cell.textLabel?.textColor = UIColor.black
+        
         return cell
     }
     
+    // MARK: - TableView Delegate Methods
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: Constants.Segues.itemsList, sender: self)
+    }
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-
+        
         if editingStyle == .delete {
             
             // Remove list from context.
@@ -55,17 +81,9 @@ class ListViewController: UITableViewController {
             // Update database.
             saveData()
             
-            // Reload tableview.
+            // Reload tableView.
             tableView.reloadData()
         }
-    }
-    
-    
-    // MARK: - TableView Delegate Methods
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        performSegue(withIdentifier: Constants.Segues.itemsList, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -114,17 +132,17 @@ class ListViewController: UITableViewController {
         tableView.reloadData()
     }
     
-//    func deleteList(indexPath: IndexPath) {
-//
-//        // Remove list from context.
-//        context.delete(listArray[indexPath.row])
-//
-//        // Remove list from listArray.
-//        listArray.remove(at: indexPath.row)
-//
-//        // Update database.
-//        saveData()
-//    }
+    //    func deleteList(indexPath: IndexPath) {
+    //
+    //        // Remove list from context.
+    //        context.delete(listArray[indexPath.row])
+    //
+    //        // Remove list from listArray.
+    //        listArray.remove(at: indexPath.row)
+    //
+    //        // Update database.
+    //        saveData()
+    //    }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
