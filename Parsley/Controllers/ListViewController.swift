@@ -62,7 +62,7 @@ class ListViewController: UITableViewController {
     // MARK: - TableView Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+
         performSegue(withIdentifier: Constants.Segues.itemsList, sender: self)
     }
     
@@ -129,19 +129,7 @@ class ListViewController: UITableViewController {
         
         tableView.reloadData()
     }
-    
-    //    func deleteList(indexPath: IndexPath) {
-    //
-    //        // Remove list from context.
-    //        context.delete(listArray[indexPath.row])
-    //
-    //        // Remove list from listArray.
-    //        listArray.remove(at: indexPath.row)
-    //
-    //        // Update database.
-    //        saveData()
-    //    }
-    
+
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
         var textField = UITextField()
