@@ -140,12 +140,15 @@ class ParsleyViewController: UITableViewController {
             
         }
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
         alert.addTextField { alertTextField in
             alertTextField.placeholder = "Create New Todo"
             textField = alertTextField
         }
         
         alert.addAction(action)
+        alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
         

@@ -166,6 +166,8 @@ class ListViewController: UITableViewController {
             self.tableView.reloadData()
         }
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
         alert.addTextField { alertTextField in
             
             alertTextField.placeholder = "Create New List"
@@ -173,6 +175,7 @@ class ListViewController: UITableViewController {
         }
         
         alert.addAction(action)
+        alert.addAction(cancelAction)
         
         present(alert, animated: true, completion: nil)
     }

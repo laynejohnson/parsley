@@ -15,11 +15,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="parsley_logo" translatesAutoresizingMaskIntoConstraints="NO" id="EZ6-UR-6MY" userLabel="Parsley Logo">
-                                <rect key="frame" x="87" y="328" width="240" height="240"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 2" translatesAutoresizingMaskIntoConstraints="NO" id="EZ6-UR-6MY" userLabel="Parsley Logo">
+                                <rect key="frame" x="111.5" y="352.5" width="191" height="191"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="3zi-bp-vaB"/>
-                                    <constraint firstAttribute="width" constant="240" id="Z84-aG-83e"/>
+                                    <constraint firstAttribute="width" constant="191" id="6Dv-F3-sSa"/>
+                                    <constraint firstAttribute="height" constant="191" id="UsJ-Ou-Irw"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="parsley_logo" width="630" height="629"/>
+        <image name="Group 2" width="159" height="158"/>
     </resources>
 </document>
