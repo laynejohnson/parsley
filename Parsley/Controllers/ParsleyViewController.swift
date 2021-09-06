@@ -20,7 +20,7 @@ class ParsleyViewController: UITableViewController {
     
     var selectedList : List? {
         
-        // didSet keyword code block happens as soon as selectedList is set with value.
+        // didSet keyword code block executes as soon as selectedList is set with value.
         didSet {
             loadItems()
         }
@@ -44,7 +44,6 @@ class ParsleyViewController: UITableViewController {
         }
         
         searchBar.delegate = self
-        
     }
     
     // MARK: - Tableview Datasource Methods
