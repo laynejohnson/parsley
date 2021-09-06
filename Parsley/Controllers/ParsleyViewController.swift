@@ -29,9 +29,7 @@ class ParsleyViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        // Configure search bar appearance.
-        
+    
         // Set search bar icon color.
         searchBar.searchTextField.leftView?.tintColor = .black
         
@@ -70,7 +68,11 @@ class ParsleyViewController: UITableViewController {
         // Set cell text color.
         cell.textLabel?.textColor = UIColor.black
         
+        // Set cell accessory type (checkmark).
         cell.accessoryType = item.done ? .checkmark : .none
+        
+        // Set accessory color.
+        cell.tintColor = #colorLiteral(red: 0.1450980392, green: 0.9215686275, blue: 0.6274509804, alpha: 1)
         
         return cell
     }

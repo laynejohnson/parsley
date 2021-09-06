@@ -21,8 +21,6 @@ class ListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Configure search bar appearance.
-        
         // Set search bar icon color.
         searchBar.searchTextField.leftView?.tintColor = .black
         
