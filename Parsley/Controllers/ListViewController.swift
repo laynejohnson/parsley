@@ -114,11 +114,7 @@ class ListViewController: UITableViewController {
     }
     
     func loadCategories(with request: NSFetchRequest<List> = List.fetchRequest(), predicate: NSPredicate? = nil) {
-        // Item.fetchRequest() is the default value.
-        
-        //        // Case and diacritic insensitive lookup [cd].
-        //        let predicate = NSPredicate(format: "name CONTAINS [cd] %@", searchBar!.text!)
-        //
+
         request.predicate = predicate
         
         do {
@@ -170,9 +166,6 @@ class ListViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    
-    
-    
 } // End ListViewController
 
 extension ListViewController: UISearchBarDelegate {
@@ -186,8 +179,6 @@ extension ListViewController: UISearchBarDelegate {
             
         } else {
             
-            print(searchBar.text!)
-            
             // Create data request.
             let request : NSFetchRequest<List> = List.fetchRequest()
             
@@ -199,7 +190,6 @@ extension ListViewController: UISearchBarDelegate {
             
             // Load items.
             loadCategories(with: request, predicate: predicate)
-            
         }
     }
     
