@@ -70,23 +70,22 @@ class CategoryViewController: UITableViewController {
         performSegue(withIdentifier: Constants.Segues.itemsList, sender: self)
     }
     
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//
-//        if editingStyle == .delete {
-//
-//            // Remove category from context.
-//            context.delete(categories[indexPath.row])
-//
-//            // Remove category from categories.
-//            categories.remove(at: indexPath.row)
-//
-//            // Update database.
-//            save(category: category)
-//
-//            // Reload tableView.
-//            tableView.reloadData()
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+        if editingStyle == .delete {
+            if let category = categories?[indexPath.row] {
+                do {
+                    try realm.write {
+                        realm.delete(category)
+                    }
+                } catch {
+                    print("There was an error deleting category: \(error)")
+                }
+            }
+            // Reload tableView.
+            tableView.reloadData()
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

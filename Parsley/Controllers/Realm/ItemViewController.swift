@@ -9,11 +9,11 @@ import UIKit
 import RealmSwift
 
 class ItemViewController: UITableViewController {
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     
     let realm = try! Realm()
-
+    
     var items: Results<Item>?
     
     var selectedCategory : Category? {
@@ -27,7 +27,7 @@ class ItemViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    
+        
         // Set search bar icon color.
         searchBar.searchTextField.leftView?.tintColor = .black
         
@@ -35,13 +35,13 @@ class ItemViewController: UITableViewController {
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             textfield.textColor = UIColor.black
         }
-    
+        
         // Set search bar background color.
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             textfield.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.968627451, blue: 0.9529411765, alpha: 1)
         }
         
-//        searchBar.delegate = self
+        //        searchBar.delegate = self
     }
     
     // MARK: - Tableview Datasource Methods
@@ -74,7 +74,7 @@ class ItemViewController: UITableViewController {
         } else {
             cell.textLabel?.text = "All todos completed! 🎉"
         }
-    
+        
         return cell
     }
     
@@ -82,10 +82,15 @@ class ItemViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        items?[indexPath.row].done = !(items?[indexPath.row].done ?? false)
-        
-        // Save updated properties.
-//        saveItems()
+        if let item = items?[indexPath.row] {
+            do {
+                try realm.write {
+                    item.done = !item.done
+                }
+            } catch {
+                print("Error saving done status: \(error)")
+            }
+        }
         
         // Call datasource method again to refresh data.
         tableView.reloadData()
@@ -94,21 +99,25 @@ class ItemViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//
-//        if editingStyle == .delete {
-//
-//            // Remove item from listArray.
-//            items.remove(at: indexPath.row)
-//
-//            // Update database.
-//            save()
-//
-//            // Reload tableView.
-//            tableView.reloadData()
-//        }
-//    }
-//
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            if let item = items?[indexPath.row] {
+                do {
+                    try realm.write {
+                        realm.delete(item)
+                    }
+                } catch {
+                    print("There was an error deleting item: \(error)")
+                }
+            }
+            
+            // Reload tableView.
+            tableView.reloadData()
+            
+        }
+    }
+    
     // MARK: - Add New Items
     
     @IBAction func addItem(_ sender: UIBarButtonItem) {
@@ -157,21 +166,12 @@ class ItemViewController: UITableViewController {
     func loadItems() {
         
         // Load all items.
-//        items = realm.objects(Item.self)
+        //        items = realm.objects(Item.self)
         
         items = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
-  
+        
         tableView.reloadData()
     }
-    
-//    func deleteItem(indexPath: IndexPath) {
-//        
-//        // Delete item from array.
-//        items.remove(at: indexPath.row)
-//        
-//        // Save changes.
-////        saveItems(item: item)
-//    }
     
     // MARK: - End ParlseyViewController
 }
@@ -179,7 +179,7 @@ class ItemViewController: UITableViewController {
 // MARK: - Search Bar Delegate Methods
 
 extension ItemViewController: UISearchBarDelegate {
-
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // Reload table view with search text.
         
@@ -197,7 +197,7 @@ extension ItemViewController: UISearchBarDelegate {
         if searchBar.text?.count == 0 {
             
             loadItems()
-
+            
             DispatchQueue.main.async {
                 // Dismiss keyboard.
                 searchBar.resignFirstResponder()
