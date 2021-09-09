@@ -38,8 +38,7 @@ class ItemViewController: UITableViewController {
     
         // Set search bar background color.
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-//            textfield.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9647058824, blue: 0.9411764706, alpha: 1)
-            textfield.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            textfield.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.968627451, blue: 0.9529411765, alpha: 1)
         }
         
 //        searchBar.delegate = self
@@ -58,20 +57,24 @@ class ItemViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemCell", for: indexPath)
         
         // Fetch data for the row.
-        let item = items?[indexPath.row]
-        
-        // Configure cell's contents.
-        cell.textLabel?.text = item?.title ?? "Add a todo"
-        
-        // Set cell text color.
-        cell.textLabel?.textColor = UIColor.black
-        
-        // Set cell accessory type (checkmark).
-        cell.accessoryType = item?.done ?? false ? .checkmark : .none
-        
-        // Set accessory color.
-        cell.tintColor = #colorLiteral(red: 0.1450980392, green: 0.9215686275, blue: 0.6274509804, alpha: 1)
-        
+        if let item = items?[indexPath.row] {
+            
+            // Configure cell's contents.
+            cell.textLabel?.text = item.title
+            
+            // Set cell text color.
+            cell.textLabel?.textColor = UIColor.black
+            
+            // Set cell accessory type (checkmark).
+            cell.accessoryType = item.done ? .checkmark : .none
+            
+            // Set accessory color.
+            cell.tintColor = #colorLiteral(red: 0.1450980392, green: 0.9215686275, blue: 0.6274509804, alpha: 1)
+            
+        } else {
+            cell.textLabel?.text = "All todos completed! 🎉"
+        }
+    
         return cell
     }
     
@@ -119,16 +122,21 @@ class ItemViewController: UITableViewController {
             
             // Action when user clicks the add button.
             // Create new item.
-            let newItem = Item()
-            newItem.title = textField.text!
-            newItem.done = false
             
-            // Save item to db.
-            self.save(item: newItem)
+            if let currentCategory = self.selectedCategory {
+                do {
+                    try realm.write {
+                        let newItem = Item()
+                        newItem.title = textField.text!
+                        currentCategory.items.append(newItem)
+                    }
+                } catch {
+                    print("There was an error saving new items, \(error)")
+                }
+            }
             
             // Reload table view.
             self.tableView.reloadData()
-            
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -146,20 +154,12 @@ class ItemViewController: UITableViewController {
     }
     // MARK: - Data Manipulation Methods
     
-    func save(item: Item) {
-        
-        do {
-            try realm.write({
-                realm.add(item)
-            })
-        } catch {
-            print("There was an error saving context: \(error)")
-        }
-    }
-    
     func loadItems() {
         
-        items = realm.objects(Item.self)
+        // Load all items.
+//        items = realm.objects(Item.self)
+        
+        items = selectedCategory?.items.sorted(byKeyPath: "title", ascending: true)
   
         tableView.reloadData()
     }

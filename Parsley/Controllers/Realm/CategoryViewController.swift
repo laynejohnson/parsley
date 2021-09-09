@@ -32,8 +32,7 @@ class CategoryViewController: UITableViewController {
         
         // Set search bar background color.
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-            //            textfield.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9647058824, blue: 0.9411764706, alpha: 1)
-            textfield.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            textfield.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.968627451, blue: 0.9529411765, alpha: 1)
         }
         
 //        searchBar.delegate = self
@@ -56,7 +55,7 @@ class CategoryViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath)
         
         // Configure cell contents.
-        cell.textLabel?.text = categories?[indexPath.row].name ?? "No Categories Added Yet"
+        cell.textLabel?.text = categories?[indexPath.row].name ?? "Create a new list"
         
         // Set cell text color.
         cell.textLabel?.textColor = UIColor.black
