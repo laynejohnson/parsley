@@ -6,13 +6,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ItemViewController: UITableViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     
-    // Initialize array to hold data.
-    var itemArray = [Item]()
+    let realm = try! Realm()
+
+    var items: Results<Item>?
     
     var selectedCategory : Category? {
         
@@ -40,14 +42,14 @@ class ItemViewController: UITableViewController {
             textfield.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
         
-        searchBar.delegate = self
+//        searchBar.delegate = self
     }
     
     // MARK: - Tableview Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return itemArray.count
+        return items?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,16 +58,16 @@ class ItemViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemCell", for: indexPath)
         
         // Fetch data for the row.
-        let item = itemArray[indexPath.row]
+        let item = items?[indexPath.row]
         
         // Configure cell's contents.
-        cell.textLabel?.text = item.title
+        cell.textLabel?.text = item?.title ?? "Add a todo"
         
         // Set cell text color.
         cell.textLabel?.textColor = UIColor.black
         
         // Set cell accessory type (checkmark).
-        cell.accessoryType = item.done ? .checkmark : .none
+        cell.accessoryType = item?.done ?? false ? .checkmark : .none
         
         // Set accessory color.
         cell.tintColor = #colorLiteral(red: 0.1450980392, green: 0.9215686275, blue: 0.6274509804, alpha: 1)
@@ -77,10 +79,10 @@ class ItemViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        items?[indexPath.row].done = !(items?[indexPath.row].done ?? false)
         
         // Save updated properties.
-        saveItems()
+//        saveItems()
         
         // Call datasource method again to refresh data.
         tableView.reloadData()
@@ -89,24 +91,21 @@ class ItemViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-
-        if editingStyle == .delete {
-            
-            // Remove item from context.
-            context.delete(itemArray[indexPath.row])
-            
-            // Remove item from listArray.
-            itemArray.remove(at: indexPath.row)
-            
-            // Update database.
-            saveItems()
-            
-            // Reload tableView.
-            tableView.reloadData()
-        }
-    }
-    
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//
+//        if editingStyle == .delete {
+//
+//            // Remove item from listArray.
+//            items.remove(at: indexPath.row)
+//
+//            // Update database.
+//            save()
+//
+//            // Reload tableView.
+//            tableView.reloadData()
+//        }
+//    }
+//
     // MARK: - Add New Items
     
     @IBAction func addItem(_ sender: UIBarButtonItem) {
@@ -120,16 +119,12 @@ class ItemViewController: UITableViewController {
             
             // Action when user clicks the add button.
             // Create new item.
-            let newItem = Item(context: self.context)
+            let newItem = Item()
             newItem.title = textField.text!
             newItem.done = false
-            newItem.parentCategory = self.selectedCategory
-            
-            // Add new item to array.
-            self.itemArray.append(newItem)
             
             // Save item to db.
-            self.saveItems()
+            self.save(item: newItem)
             
             // Reload table view.
             self.tableView.reloadData()
@@ -151,48 +146,32 @@ class ItemViewController: UITableViewController {
     }
     // MARK: - Data Manipulation Methods
     
-    func saveItems() {
+    func save(item: Item) {
         
-        // Save/commit current state of the context to persistent container.
         do {
-            try context.save()
+            try realm.write({
+                realm.add(item)
+            })
         } catch {
-            print("Error saving context: \(error)")
+            print("There was an error saving context: \(error)")
         }
     }
     
-    func loadItems(with request: NSFetchRequest<Item> = Item.fetchRequest(), predicate: NSPredicate? = nil) {
-        // Item.fetchRequest() is the default value.
+    func loadItems() {
         
-        let categoryPredicate = NSPredicate(format: "parentCategory.name MATCHES %@", selectedCategory!.name!)
-        
-        if let additionalPredicate = predicate {
-            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [categoryPredicate, additionalPredicate])
-            
-        } else {
-            request.predicate = categoryPredicate
-        }
-
-        do {
-            itemArray = try context.fetch(request)
-        } catch{
-            print("Error fetching data from context \(error)")
-        }
-        
+        items = realm.objects(Item.self)
+  
         tableView.reloadData()
     }
     
-    func deleteItem(indexPath: IndexPath) {
-        
-        // Delete item from context.
-        context.delete(itemArray[indexPath.row])
-        
-        // Delete item from array.
-        itemArray.remove(at: indexPath.row)
-        
-        // Save changes.
-        saveItems()
-    }
+//    func deleteItem(indexPath: IndexPath) {
+//        
+//        // Delete item from array.
+//        items.remove(at: indexPath.row)
+//        
+//        // Save changes.
+////        saveItems(item: item)
+//    }
     
     // MARK: - End ParlseyViewController
 }
@@ -210,17 +189,6 @@ extension ItemViewController: UISearchBarDelegate {
             
         } else {
             
-            // Create data request.
-            let request : NSFetchRequest<Item> = Item.fetchRequest()
-            
-            // Create NSPredicate query.
-            let predicate = NSPredicate(format: "title CONTAINS [cd] %@", searchBar.text!)
-            
-            // Sort results.
-            request.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
-            
-            // Load items.
-            loadItems(with: request, predicate: predicate)
             
         }
     }
@@ -229,7 +197,7 @@ extension ItemViewController: UISearchBarDelegate {
         if searchBar.text?.count == 0 {
             
             loadItems()
-            
+
             DispatchQueue.main.async {
                 // Dismiss keyboard.
                 searchBar.resignFirstResponder()

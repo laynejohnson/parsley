@@ -16,7 +16,8 @@ class CategoryViewController: UITableViewController {
     
     let realm = try! Realm()
     
-    var categories = [Category]()
+    // Realm queries return results in the form of a Results object.
+    var categories: Results<Category>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,17 +36,18 @@ class CategoryViewController: UITableViewController {
             textfield.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
         
-        searchBar.delegate = self
+//        searchBar.delegate = self
         
         // Load data.
-//        loadCategories()
+        loadCategories()
     }
     
     // MARK: - Table View Data Source Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return categories.count
+        // Nil coalescing operator: if categories is not nil, return categories. If nil, return 1.
+        return categories?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,7 +56,7 @@ class CategoryViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath)
         
         // Configure cell contents.
-        cell.textLabel?.text = categories[indexPath.row].name
+        cell.textLabel?.text = categories?[indexPath.row].name ?? "No Categories Added Yet"
         
         // Set cell text color.
         cell.textLabel?.textColor = UIColor.black
@@ -73,10 +75,10 @@ class CategoryViewController: UITableViewController {
 //
 //        if editingStyle == .delete {
 //
-//            // Remove list from context.
+//            // Remove category from context.
 //            context.delete(categories[indexPath.row])
 //
-//            // Remove list from listArray.
+//            // Remove category from categories.
 //            categories.remove(at: indexPath.row)
 //
 //            // Update database.
@@ -89,11 +91,11 @@ class CategoryViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let destinationVC = segue.destination as! TodoViewController
+        let destinationVC = segue.destination as! ItemViewController
         
         if let indexPath = tableView.indexPathForSelectedRow {
             
-            destinationVC.selectedList = categories[indexPath.row]
+            destinationVC.selectedCategory = categories?[indexPath.row]
         }
     }
     
@@ -110,20 +112,12 @@ class CategoryViewController: UITableViewController {
         }
     }
     
-//    func loadCategories(with request: NSFetchRequest<List> = List.fetchRequest(), predicate: NSPredicate? = nil) {
-//
-//        request.predicate = predicate
-//
-//        do {
-//            // Returns an array of objects that meet the criteria specified by a given fetch request.
-//            // Save contents of fetch request to array.
-//            categories = try context.fetch(request)
-//        } catch{
-//            print("Error fetching data from context \(error)")
-//        }
-//
-//        tableView.reloadData()
-//    }
+    func loadCategories() {
+        
+        categories = realm.objects(Category.self)
+  
+        tableView.reloadData()
+    }
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
@@ -135,14 +129,11 @@ class CategoryViewController: UITableViewController {
         let action = UIAlertAction(title: "Create", style: .default) { [self] (action) in
             
             // Action when user clicks the add button.
-            // Create new list.
+            // Create new category.
             let newCategory = Category()
             newCategory.name = textField.text!
             
-            // Add new list to array.
-            self.categories.append(newCategory)
-            
-            // Save list to db.
+            // Save category.
             self.save(category: newCategory)
             
             // Reload table view.
@@ -163,40 +154,40 @@ class CategoryViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-} // End ListViewController
+} // End CategoryViewController
 
 // MARK: - Search Bar Extension
 
 //extension CategoryViewController: UISearchBarDelegate {
-//    
+//
 //    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 //        // Reload table view with search text.
-//        
+//
 //        if searchBar.text == "" {
-//            
+//
 //            loadCategories()
-//            
+//
 //        } else {
-//            
+//
 //            // Create data request.
 //            let request : NSFetchRequest<List> = List.fetchRequest()
-//            
+//
 //            // Create NSPredicate query.
 //            let predicate = NSPredicate(format: "name CONTAINS [cd] %@", searchBar.text!)
-//            
+//
 //            // Sort results.
 //            request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-//            
+//
 //            // Load items.
 //            loadCategories(with: request, predicate: predicate)
 //        }
 //    }
-//    
+//
 //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //        if searchBar.text?.count == 0 {
-//            
+//
 //            loadCategories()
-//            
+//
 //            DispatchQueue.main.async {
 //                // Dismiss keyboard.
 //                searchBar.resignFirstResponder()
