@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60EEC9FAEC353F991FEDC18B /* Pods_Parsley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3370A23722556000B2B919 /* Pods_Parsley.framework */; };
+		9644840D9A73169C7678CA37 /* Pods_ParsleyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE9AB2FD155C7E4D1588DA4 /* Pods_ParsleyTests.framework */; };
+		AC28E6EF9BD38DAE001AEC57 /* Pods_Parsley_ParsleyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D7DA724E24F4D4877CE9D3 /* Pods_Parsley_ParsleyUITests.framework */; };
 		E873F84626DF9E4800700F3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873F84526DF9E4800700F3F /* AppDelegate.swift */; };
 		E873F84826DF9E4800700F3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873F84726DF9E4800700F3F /* SceneDelegate.swift */; };
 		E873F84A26DF9E4800700F3F /* ParsleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873F84926DF9E4800700F3F /* ParsleyViewController.swift */; };
@@ -41,6 +44,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		074C4A1B03C863400775607C /* Pods-ParsleyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParsleyTests.release.xcconfig"; path = "Target Support Files/Pods-ParsleyTests/Pods-ParsleyTests.release.xcconfig"; sourceTree = "<group>"; };
+		2BE9AB2FD155C7E4D1588DA4 /* Pods_ParsleyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ParsleyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35D7DA724E24F4D4877CE9D3 /* Pods_Parsley_ParsleyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parsley_ParsleyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		449E3A58CE2C0BFDE951D5D2 /* Pods-Parsley-ParsleyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parsley-ParsleyUITests.release.xcconfig"; path = "Target Support Files/Pods-Parsley-ParsleyUITests/Pods-Parsley-ParsleyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5338CA7140B7F78DA6506DF6 /* Pods-Parsley.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parsley.debug.xcconfig"; path = "Target Support Files/Pods-Parsley/Pods-Parsley.debug.xcconfig"; sourceTree = "<group>"; };
+		C50A9799324DB77D1530F4E9 /* Pods-Parsley.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parsley.release.xcconfig"; path = "Target Support Files/Pods-Parsley/Pods-Parsley.release.xcconfig"; sourceTree = "<group>"; };
+		CE6F09884EA8544ED7AC15AA /* Pods-Parsley-ParsleyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parsley-ParsleyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Parsley-ParsleyUITests/Pods-Parsley-ParsleyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DA3370A23722556000B2B919 /* Pods_Parsley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parsley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E873F84226DF9E4800700F3F /* Parsley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parsley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E873F84526DF9E4800700F3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E873F84726DF9E4800700F3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +70,7 @@
 		E87B8F8A26E110D3008B185B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E890634026E262B2000F311F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E890634226E2630C000F311F /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		EDE48F081C3DEFC96C62E9CB /* Pods-ParsleyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParsleyTests.debug.xcconfig"; path = "Target Support Files/Pods-ParsleyTests/Pods-ParsleyTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60EEC9FAEC353F991FEDC18B /* Pods_Parsley.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9644840D9A73169C7678CA37 /* Pods_ParsleyTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,12 +94,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC28E6EF9BD38DAE001AEC57 /* Pods_Parsley_ParsleyUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		205F3A09F2EF84C9E3176599 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5338CA7140B7F78DA6506DF6 /* Pods-Parsley.debug.xcconfig */,
+				C50A9799324DB77D1530F4E9 /* Pods-Parsley.release.xcconfig */,
+				CE6F09884EA8544ED7AC15AA /* Pods-Parsley-ParsleyUITests.debug.xcconfig */,
+				449E3A58CE2C0BFDE951D5D2 /* Pods-Parsley-ParsleyUITests.release.xcconfig */,
+				EDE48F081C3DEFC96C62E9CB /* Pods-ParsleyTests.debug.xcconfig */,
+				074C4A1B03C863400775607C /* Pods-ParsleyTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		98908D72CFABB62F4883F485 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA3370A23722556000B2B919 /* Pods_Parsley.framework */,
+				35D7DA724E24F4D4877CE9D3 /* Pods_Parsley_ParsleyUITests.framework */,
+				2BE9AB2FD155C7E4D1588DA4 /* Pods_ParsleyTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E873F83926DF9E4800700F3F = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +133,8 @@
 				E873F85E26DF9E4A00700F3F /* ParsleyTests */,
 				E873F86926DF9E4A00700F3F /* ParsleyUITests */,
 				E873F84326DF9E4800700F3F /* Products */,
+				205F3A09F2EF84C9E3176599 /* Pods */,
+				98908D72CFABB62F4883F485 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,9 +214,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E873F86F26DF9E4A00700F3F /* Build configuration list for PBXNativeTarget "Parsley" */;
 			buildPhases = (
+				6922EDBCB7EE380D1BBD1D1F /* [CP] Check Pods Manifest.lock */,
 				E873F83E26DF9E4800700F3F /* Sources */,
 				E873F83F26DF9E4800700F3F /* Frameworks */,
 				E873F84026DF9E4800700F3F /* Resources */,
+				DB5292B5E922524CC6853D3D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -190,9 +233,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E873F87226DF9E4A00700F3F /* Build configuration list for PBXNativeTarget "ParsleyTests" */;
 			buildPhases = (
+				BEABAF744CEEAB4F80136CA0 /* [CP] Check Pods Manifest.lock */,
 				E873F85726DF9E4A00700F3F /* Sources */,
 				E873F85826DF9E4A00700F3F /* Frameworks */,
 				E873F85926DF9E4A00700F3F /* Resources */,
+				3C52EBDC1BF44E1ACD85F128 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -208,9 +253,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E873F87526DF9E4A00700F3F /* Build configuration list for PBXNativeTarget "ParsleyUITests" */;
 			buildPhases = (
+				D80BD4D6A3C00A5ACC551810 /* [CP] Check Pods Manifest.lock */,
 				E873F86226DF9E4A00700F3F /* Sources */,
 				E873F86326DF9E4A00700F3F /* Frameworks */,
 				E873F86426DF9E4A00700F3F /* Resources */,
+				BD26A1AF05B6529C59123E34 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -293,6 +340,126 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C52EBDC1BF44E1ACD85F128 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ParsleyTests/Pods-ParsleyTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ParsleyTests/Pods-ParsleyTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ParsleyTests/Pods-ParsleyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6922EDBCB7EE380D1BBD1D1F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Parsley-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BD26A1AF05B6529C59123E34 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Parsley-ParsleyUITests/Pods-Parsley-ParsleyUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Parsley-ParsleyUITests/Pods-Parsley-ParsleyUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Parsley-ParsleyUITests/Pods-Parsley-ParsleyUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BEABAF744CEEAB4F80136CA0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ParsleyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D80BD4D6A3C00A5ACC551810 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Parsley-ParsleyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB5292B5E922524CC6853D3D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Parsley/Pods-Parsley-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Parsley/Pods-Parsley-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Parsley/Pods-Parsley-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E873F83E26DF9E4800700F3F /* Sources */ = {
@@ -477,6 +644,7 @@
 		};
 		E873F87026DF9E4A00700F3F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5338CA7140B7F78DA6506DF6 /* Pods-Parsley.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -496,6 +664,7 @@
 		};
 		E873F87126DF9E4A00700F3F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C50A9799324DB77D1530F4E9 /* Pods-Parsley.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -515,6 +684,7 @@
 		};
 		E873F87326DF9E4A00700F3F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDE48F081C3DEFC96C62E9CB /* Pods-ParsleyTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -537,6 +707,7 @@
 		};
 		E873F87426DF9E4A00700F3F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 074C4A1B03C863400775607C /* Pods-ParsleyTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -559,6 +730,7 @@
 		};
 		E873F87626DF9E4A00700F3F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE6F09884EA8544ED7AC15AA /* Pods-Parsley-ParsleyUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -579,6 +751,7 @@
 		};
 		E873F87726DF9E4A00700F3F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 449E3A58CE2C0BFDE951D5D2 /* Pods-Parsley-ParsleyUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
