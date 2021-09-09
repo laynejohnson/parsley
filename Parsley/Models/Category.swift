@@ -12,6 +12,6 @@ class Category: Object {
     
     @Persisted var name: String = ""
     
-    // Define a to-many relationship.
+    // Define a to-many relationship. 
     @Persisted var items: List<Item>
 }

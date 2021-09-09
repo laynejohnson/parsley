@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ParsleyViewController: UITableViewController {
+class TodoViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -203,7 +203,7 @@ class ParsleyViewController: UITableViewController {
 
 // MARK: - Search Bar Delegate Methods
 
-extension ParsleyViewController: UISearchBarDelegate {
+extension TodoViewController: UISearchBarDelegate {
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // Reload table view with search text.

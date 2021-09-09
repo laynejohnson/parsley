@@ -3,7 +3,9 @@
 //  Parsley
 //
 //  Created by Layne Johnson on 9/3/21.
-//
+
+// USE THIS VIEW CONTROLLER FOR CORE DATA SETUP.
+// USE LIST CLASS (NOT CATEGORY)
 
 import UIKit
 import CoreData
@@ -13,10 +15,10 @@ class ListViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
+    var listArray = [List]()
+    
     // Create a reference to the persistent container context.
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    var listArray = [List]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
