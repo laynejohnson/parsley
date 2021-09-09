@@ -41,10 +41,10 @@ class ItemViewController: UITableViewController {
             textfield.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.968627451, blue: 0.9529411765, alpha: 1)
         }
         
-        //        searchBar.delegate = self
+        searchBar.delegate = self
     }
     
-    // MARK: - Tableview Datasource Methods
+    // MARK: - tableView Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -78,7 +78,7 @@ class ItemViewController: UITableViewController {
         return cell
     }
     
-    // MARK: - Tableview Delegate Methods
+    // MARK: - tableView Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -181,19 +181,17 @@ class ItemViewController: UITableViewController {
 extension ItemViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // Reload table view with search text.
         
-        if searchBar.text == "" {
-            
-            loadItems()
-            
-        } else {
-            
-            
-        }
+        // Filter items.
+        items = items?.filter("title CONTAINS [cd] %@", searchBar.text!).sorted(byKeyPath: "title", ascending: true)
+        
+        // Reload tableView data.
+        tableView.reloadData()
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         if searchBar.text?.count == 0 {
             
             loadItems()

@@ -35,13 +35,13 @@ class CategoryViewController: UITableViewController {
             textfield.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.968627451, blue: 0.9529411765, alpha: 1)
         }
         
-//        searchBar.delegate = self
+        searchBar.delegate = self
         
         // Load data.
         loadCategories()
     }
     
-    // MARK: - Table View Data Source Methods
+    // MARK: - tableView Data Source Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -63,7 +63,7 @@ class CategoryViewController: UITableViewController {
         return cell
     }
     
-    // MARK: - TableView Delegate Methods
+    // MARK: - tableView Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -71,7 +71,7 @@ class CategoryViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-
+        
         if editingStyle == .delete {
             if let category = categories?[indexPath.row] {
                 do {
@@ -113,9 +113,10 @@ class CategoryViewController: UITableViewController {
     func loadCategories() {
         
         categories = realm.objects(Category.self)
-  
         tableView.reloadData()
     }
+    
+    // MARK: - Add New Category
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
@@ -156,41 +157,28 @@ class CategoryViewController: UITableViewController {
 
 // MARK: - Search Bar Extension
 
-//extension CategoryViewController: UISearchBarDelegate {
-//
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        // Reload table view with search text.
-//
-//        if searchBar.text == "" {
-//
-//            loadCategories()
-//
-//        } else {
-//
-//            // Create data request.
-//            let request : NSFetchRequest<List> = List.fetchRequest()
-//
-//            // Create NSPredicate query.
-//            let predicate = NSPredicate(format: "name CONTAINS [cd] %@", searchBar.text!)
-//
-//            // Sort results.
-//            request.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
-//
-//            // Load items.
-//            loadCategories(with: request, predicate: predicate)
-//        }
-//    }
-//
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if searchBar.text?.count == 0 {
-//
-//            loadCategories()
-//
-//            DispatchQueue.main.async {
-//                // Dismiss keyboard.
-//                searchBar.resignFirstResponder()
-//            }
-//        }
-//    }
-//}
-
+extension CategoryViewController: UISearchBarDelegate {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        // Filter categories.
+        categories = categories?.filter("name CONTAINS [cd] %@", searchBar.text!).sorted(byKeyPath: "name", ascending: true)
+        
+        // Reload tableView data.
+        tableView.reloadData()
+        
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text?.count == 0 {
+            
+            loadCategories()
+            
+            DispatchQueue.main.async {
+                // Dismiss keyboard.
+                searchBar.resignFirstResponder()
+            }
+        }
+    }
+}
