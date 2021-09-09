@@ -3,13 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		60EEC9FAEC353F991FEDC18B /* Pods_Parsley.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA3370A23722556000B2B919 /* Pods_Parsley.framework */; };
 		9644840D9A73169C7678CA37 /* Pods_ParsleyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE9AB2FD155C7E4D1588DA4 /* Pods_ParsleyTests.framework */; };
 		AC28E6EF9BD38DAE001AEC57 /* Pods_Parsley_ParsleyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35D7DA724E24F4D4877CE9D3 /* Pods_Parsley_ParsleyUITests.framework */; };
+		E84A0D4E26EA307300425D3D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84A0D4D26EA307300425D3D /* Item.swift */; };
+		E84A0D4F26EA307300425D3D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84A0D4D26EA307300425D3D /* Item.swift */; };
+		E84A0D5026EA307300425D3D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84A0D4D26EA307300425D3D /* Item.swift */; };
+		E84A0D5226EA307D00425D3D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84A0D5126EA307D00425D3D /* Category.swift */; };
+		E84A0D5326EA307D00425D3D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84A0D5126EA307D00425D3D /* Category.swift */; };
+		E84A0D5426EA307D00425D3D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84A0D5126EA307D00425D3D /* Category.swift */; };
 		E873F84626DF9E4800700F3F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873F84526DF9E4800700F3F /* AppDelegate.swift */; };
 		E873F84826DF9E4800700F3F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873F84726DF9E4800700F3F /* SceneDelegate.swift */; };
 		E873F84A26DF9E4800700F3F /* ParsleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E873F84926DF9E4800700F3F /* ParsleyViewController.swift */; };
@@ -52,6 +58,8 @@
 		C50A9799324DB77D1530F4E9 /* Pods-Parsley.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parsley.release.xcconfig"; path = "Target Support Files/Pods-Parsley/Pods-Parsley.release.xcconfig"; sourceTree = "<group>"; };
 		CE6F09884EA8544ED7AC15AA /* Pods-Parsley-ParsleyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Parsley-ParsleyUITests.debug.xcconfig"; path = "Target Support Files/Pods-Parsley-ParsleyUITests/Pods-Parsley-ParsleyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		DA3370A23722556000B2B919 /* Pods_Parsley.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Parsley.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E84A0D4D26EA307300425D3D /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		E84A0D5126EA307D00425D3D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E873F84226DF9E4800700F3F /* Parsley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Parsley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E873F84526DF9E4800700F3F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E873F84726DF9E4800700F3F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +119,6 @@
 				EDE48F081C3DEFC96C62E9CB /* Pods-ParsleyTests.debug.xcconfig */,
 				074C4A1B03C863400775607C /* Pods-ParsleyTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -185,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				E873F84E26DF9E4800700F3F /* Parsley.xcdatamodeld */,
+				E84A0D5126EA307D00425D3D /* Category.swift */,
+				E84A0D4D26EA307300425D3D /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -467,9 +476,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E890634126E262B2000F311F /* Constants.swift in Sources */,
+				E84A0D5226EA307D00425D3D /* Category.swift in Sources */,
 				E873F85026DF9E4800700F3F /* Parsley.xcdatamodeld in Sources */,
 				E873F84A26DF9E4800700F3F /* ParsleyViewController.swift in Sources */,
 				E873F84626DF9E4800700F3F /* AppDelegate.swift in Sources */,
+				E84A0D4E26EA307300425D3D /* Item.swift in Sources */,
 				E890634326E2630C000F311F /* ListViewController.swift in Sources */,
 				E873F84826DF9E4800700F3F /* SceneDelegate.swift in Sources */,
 			);
@@ -479,7 +490,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E84A0D4F26EA307300425D3D /* Item.swift in Sources */,
 				E873F86026DF9E4A00700F3F /* ParsleyTests.swift in Sources */,
+				E84A0D5326EA307D00425D3D /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,7 +500,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E84A0D5026EA307300425D3D /* Item.swift in Sources */,
 				E873F86B26DF9E4A00700F3F /* ParsleyUITests.swift in Sources */,
+				E84A0D5426EA307D00425D3D /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

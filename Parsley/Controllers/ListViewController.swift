@@ -31,7 +31,8 @@ class ListViewController: UITableViewController {
     
         // Set search bar background color.
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-            textfield.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9647058824, blue: 0.9411764706, alpha: 1)
+//            textfield.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9647058824, blue: 0.9411764706, alpha: 1)
+            textfield.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         }
         
         searchBar.delegate = self
@@ -167,6 +168,8 @@ class ListViewController: UITableViewController {
     }
     
 } // End ListViewController
+
+// MARK: - Search Bar Extension
 
 extension ListViewController: UISearchBarDelegate {
     
