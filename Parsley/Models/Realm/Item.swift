@@ -12,6 +12,7 @@ class Item: Object {
     
     @Persisted var title: String = ""
     @Persisted var done: Bool = false
+    @Persisted var dateCreated: Date?
     
     // Define an inverse relationship.
     @Persisted(originProperty:"items") var assignee: LinkingObjects<Category>

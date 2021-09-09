@@ -137,6 +137,12 @@ class ItemViewController: UITableViewController {
                     try realm.write {
                         let newItem = Item()
                         newItem.title = textField.text!
+                        
+//                        let date = Date()
+//                        let formatter = DateFormatter()
+//                        formatter.dateFormat = "MM.dd.yyyy"
+//                        let result = formatter.string(from: date)
+                        newItem.dateCreated = Date()
                         currentCategory.items.append(newItem)
                     }
                 } catch {

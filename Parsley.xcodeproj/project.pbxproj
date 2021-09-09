@@ -158,6 +158,23 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		E84A0D5F26EA761400425D3D /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				E84A0D5126EA307D00425D3D /* Category.swift */,
+				E84A0D4D26EA307300425D3D /* Item.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		E84A0D6026EA762300425D3D /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				E873F84E26DF9E4800700F3F /* Parsley.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		E873F83926DF9E4800700F3F = {
 			isa = PBXGroup;
 			children = (
@@ -217,9 +234,8 @@
 		E87B8F8E26E11114008B185B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E873F84E26DF9E4800700F3F /* Parsley.xcdatamodeld */,
-				E84A0D5126EA307D00425D3D /* Category.swift */,
-				E84A0D4D26EA307300425D3D /* Item.swift */,
+				E84A0D6026EA762300425D3D /* Core Data */,
+				E84A0D5F26EA761400425D3D /* Realm */,
 			);
 			path = Models;
 			sourceTree = "<group>";
