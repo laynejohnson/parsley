@@ -234,8 +234,8 @@
 		E87B8F8E26E11114008B185B /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E84A0D6026EA762300425D3D /* Core Data */,
 				E84A0D5F26EA761400425D3D /* Realm */,
+				E84A0D6026EA762300425D3D /* Core Data */,
 			);
 			path = Models;
 			sourceTree = "<group>";
