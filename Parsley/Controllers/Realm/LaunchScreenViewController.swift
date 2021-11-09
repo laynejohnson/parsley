@@ -16,24 +16,27 @@ class LaunchScreenViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        // Hide parsley logo.
         parsleyLogo.alpha = 0
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-    
         
+        animateLogo()
+         // TODO: Add segue to next screen.
+
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func animateLogo() {
+        
+        UIView.animate(withDuration: 2.0, delay: 0.50, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1, options: [], animations: {
+            self.parsleyLogo.alpha = 1
+        }, completion: nil)
     }
-    */
-
 }
