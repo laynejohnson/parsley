@@ -74,7 +74,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="P" translatesAutoresizingMaskIntoConstraints="NO" id="1Wr-U8-3lY">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <rect key="frame" x="161" y="384" width="111" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -83,7 +83,7 @@
                     </view>
                     <connections>
                         <outlet property="parsleyLogo" destination="1Wr-U8-3lY" id="G8D-qO-yNc"/>
-                        <segue destination="YiQ-hB-hIq" kind="show" id="hfm-ng-TcA"/>
+                        <segue destination="YiQ-hB-hIq" kind="show" identifier="ToLists" id="hfm-ng-TcA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5U-Rd-Eep" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

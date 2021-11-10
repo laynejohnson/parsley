@@ -11,7 +11,8 @@ struct Constants {
     
     struct Segues {
         
-        static let itemsList = "GoToItems"
+        static let todoLists = "ToLists"
+        static let todoItems = "GoToItems"
     }
     
 }

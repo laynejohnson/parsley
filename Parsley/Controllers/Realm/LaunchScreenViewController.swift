@@ -29,7 +29,8 @@ class LaunchScreenViewController: UIViewController {
         super.viewDidAppear(true)
         
         animateLogo()
-         // TODO: Add segue to next screen.
+        
+        performSegue(withIdentifier: Constants.Segues.todoLists, sender: self)
 
     }
     
