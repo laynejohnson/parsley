@@ -12,7 +12,7 @@
 - Realm setup (default) :  `Controllers` > `Realm` & `Models` > `Realm`
 - Core Data setup : `Controllers` > `Core Data` & `Models` > `Core Data`
 
-#### **For Core Data Setup:**
-** Use Core Data controllers in `Controllers` > `Core Data`. Set `ListViewController.swift` & `TodoViewController.swift` custom classes in `Main.storyboard`. Use `Parsley.xcdatamodeld` data model.
+
+** For Core Data setup: use Core Data controllers in `Controllers` > `Core Data`. Set `ListViewController.swift` & `TodoViewController.swift` custom classes in `Main.storyboard`. Use `Parsley.xcdatamodeld` data model.
 
 
