@@ -38,6 +38,7 @@ class LaunchScreenViewController: UIViewController {
         
         UIView.animate(withDuration: 2.0, delay: 0.50, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.1, options: [], animations: {
             self.parsleyLogo.alpha = 1
+      
         }, completion: nil)
     }
 }
