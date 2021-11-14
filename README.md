@@ -1,4 +1,4 @@
-#  Parsley Todo
+#  Parsley
 
 ### iOS todo app with optional Core Data || Realm database setups.
 
