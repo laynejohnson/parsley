@@ -10,7 +10,7 @@
 
 ### **Database Options :**
 
-#### **Realm (Default) :**
+#### **Realm (*Default) :**
 
 - Models: `Models` > `Realm`
 - Controllers : `Controllers` > `Realm`
