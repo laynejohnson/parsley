@@ -154,7 +154,6 @@
 		E84A0D5A26EA443D00425D3D /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				E8238EFF2735698800E062B2 /* LaunchScreenViewController.swift */,
 				E84A0D5526EA408F00425D3D /* CategoryViewController.swift */,
 				E84A0D5B26EA446C00425D3D /* ItemViewController.swift */,
 			);
@@ -255,6 +254,7 @@
 		E87B8F9026E11126008B185B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E8238EFF2735698800E062B2 /* LaunchScreenViewController.swift */,
 				E84A0D5A26EA443D00425D3D /* Realm */,
 				E84A0D5926EA443700425D3D /* Core Data */,
 			);
