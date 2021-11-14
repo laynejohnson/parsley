@@ -8,14 +8,14 @@
 - Run `pod install` inside project directory. (CocoaPods required)
 - `open parsley.xcworkspace` in Terminal to open app in XCode.
 
-### **Database Options :**
+### **Database Options**
 
-### Realm (Default)
+#### **Realm (Default)**
 
 - Models: `Models` > `Realm`
 - Controllers : `Controllers` > `Realm`
 
-### Core Data
+#### **Core Data**
 
 - Model : `Models` > `Core Data`
 - Controllers : `Controllers` > `Core Data`
