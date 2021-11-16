@@ -34,6 +34,11 @@ class LaunchScreenViewController: UIViewController {
 
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        
+    }
+    
     func animateLogo() {
         
         UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: [], animations: {

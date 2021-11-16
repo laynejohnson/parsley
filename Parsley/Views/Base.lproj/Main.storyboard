@@ -11,9 +11,9 @@
         <!--Parsley View Controller-->
         <scene sceneID="3kR-iJ-fIk">
             <objects>
-                <tableViewController id="SbI-jK-eiu" userLabel="Parsley View Controller" customClass="ItemViewController" customModule="Parsley" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="SbI-jK-eiu" userLabel="Parsley View Controller" customClass="ItemViewController" customModule="Parsley" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="J72-VZ-apt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Background"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,7 +61,7 @@
         <!--Launch Screen View Controller-->
         <scene sceneID="mla-jL-qin">
             <objects>
-                <viewController id="UtO-35-qvi" customClass="LaunchScreenViewController" customModule="Parsley" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="UtO-35-qvi" customClass="LaunchScreenViewController" customModule="Parsley" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GE6-Lv-yu5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,16 +95,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5U-Rd-Eep" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-852" y="121"/>
+            <point key="canvasLocation" x="-819" y="121"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Parsley-->
         <scene sceneID="rqy-2H-WdJ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YiQ-hB-hIq" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="YiQ-hB-hIq" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="XIA-Dy-Kdm"/>
+                    <navigationItem key="navigationItem" title="Parsley" id="XIA-Dy-Kdm"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M1r-1e-lXe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" name="AccentColor"/>
@@ -128,9 +128,9 @@
         <!--List View Controller-->
         <scene sceneID="cd4-pg-v1R">
             <objects>
-                <tableViewController id="AaX-9q-dzh" userLabel="List View Controller" customClass="CategoryViewController" customModule="Parsley" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalPresentationStyle="fullScreen" id="AaX-9q-dzh" userLabel="List View Controller" customClass="CategoryViewController" customModule="Parsley" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pR7-Xw-4rc">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="Background"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
