@@ -73,22 +73,29 @@
                                 <color key="textColor" name="Background"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="P" translatesAutoresizingMaskIntoConstraints="NO" id="1Wr-U8-3lY">
-                                <rect key="frame" x="161" y="384" width="111" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="P" translatesAutoresizingMaskIntoConstraints="NO" id="1Wr-U8-3lY">
+                                <rect key="frame" x="151.5" y="384" width="111" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="111" id="Du8-ed-BDG"/>
+                                    <constraint firstAttribute="height" constant="128" id="Zzc-Xr-teX"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gp1-pb-oEG"/>
                         <color key="backgroundColor" red="0.99607843137254903" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1Wr-U8-3lY" firstAttribute="centerY" secondItem="GE6-Lv-yu5" secondAttribute="centerY" id="QIX-Im-sjg"/>
+                            <constraint firstItem="1Wr-U8-3lY" firstAttribute="centerX" secondItem="GE6-Lv-yu5" secondAttribute="centerX" id="XXy-DS-G1c"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="parsleyLogo" destination="1Wr-U8-3lY" id="G8D-qO-yNc"/>
-                        <segue destination="YiQ-hB-hIq" kind="show" identifier="ToLists" id="hfm-ng-TcA"/>
+                        <segue destination="YiQ-hB-hIq" kind="show" identifier="ToNavigationController" id="hfm-ng-TcA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5U-Rd-Eep" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-852.17391304347836" y="120.53571428571428"/>
+            <point key="canvasLocation" x="-852" y="121"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rqy-2H-WdJ">

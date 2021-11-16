@@ -11,6 +11,7 @@ struct Constants {
     
     struct Segues {
         
+        static let navigationController = "ToNavigationController"
         static let todoLists = "ToLists"
         static let todoItems = "GoToItems"
     }

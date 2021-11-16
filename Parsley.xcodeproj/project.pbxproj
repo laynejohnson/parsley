@@ -37,6 +37,7 @@
 		E87B8F8D26E110D3008B185B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = E87B8F8A26E110D3008B185B /* README.md */; };
 		E890634126E262B2000F311F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890634026E262B2000F311F /* Constants.swift */; };
 		E890634326E2630C000F311F /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E890634226E2630C000F311F /* ListViewController.swift */; };
+		E8F6685F2744363900B0FC0A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F6685E2744363900B0FC0A /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		E87B8F8A26E110D3008B185B /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E890634026E262B2000F311F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E890634226E2630C000F311F /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		E8F6685E2744363900B0FC0A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EDE48F081C3DEFC96C62E9CB /* Pods-ParsleyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ParsleyTests.debug.xcconfig"; path = "Target Support Files/Pods-ParsleyTests/Pods-ParsleyTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -203,12 +205,12 @@
 		E873F84426DF9E4800700F3F /* Parsley */ = {
 			isa = PBXGroup;
 			children = (
+				E8F6685D2744361800B0FC0A /* Utilities */,
 				E87B8F8E26E11114008B185B /* Models */,
 				E87B8F8F26E1111B008B185B /* Views */,
 				E87B8F9026E11126008B185B /* Controllers */,
 				E873F84526DF9E4800700F3F /* AppDelegate.swift */,
 				E873F84726DF9E4800700F3F /* SceneDelegate.swift */,
-				E890634026E262B2000F311F /* Constants.swift */,
 				E873F85126DF9E4900700F3F /* Assets.xcassets */,
 				E873F85626DF9E4900700F3F /* Info.plist */,
 			);
@@ -259,6 +261,15 @@
 				E84A0D5926EA443700425D3D /* Core Data */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E8F6685D2744361800B0FC0A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E890634026E262B2000F311F /* Constants.swift */,
+				E8F6685E2744363900B0FC0A /* Extensions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -527,6 +538,7 @@
 				E873F84626DF9E4800700F3F /* AppDelegate.swift in Sources */,
 				E84A0D4E26EA307300425D3D /* Item.swift in Sources */,
 				E890634326E2630C000F311F /* ListViewController.swift in Sources */,
+				E8F6685F2744363900B0FC0A /* Extensions.swift in Sources */,
 				E84A0D5C26EA446C00425D3D /* ItemViewController.swift in Sources */,
 				E84A0D5626EA408F00425D3D /* CategoryViewController.swift in Sources */,
 				E8238F002735698800E062B2 /* LaunchScreenViewController.swift in Sources */,
