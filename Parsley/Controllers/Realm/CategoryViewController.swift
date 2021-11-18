@@ -32,7 +32,7 @@ class CategoryViewController: UITableViewController {
         
         // Set search bar background color.
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-            textfield.backgroundColor = #colorLiteral(red: 0.9764705882, green: 0.968627451, blue: 0.9529411765, alpha: 1)
+            textfield.backgroundColor = #colorLiteral(red: 0.9960784314, green: 1, blue: 1, alpha: 1)
         }
         
         searchBar.delegate = self
