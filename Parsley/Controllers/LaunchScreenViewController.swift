@@ -13,16 +13,13 @@ class LaunchScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        // Hide current views.
+        // Hide logo.
         parsleyLogo.alpha = 0
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -30,30 +27,25 @@ class LaunchScreenViewController: UIViewController {
         
         // Fire initial animations.
         animateLogo()
-        segueToNextViewController(segueID: Constants.Segues.navigationController, delay: 3.0)
-
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
         
+        // Segue to navigation view controller.
+        segueToNextViewController(segueID: Constants.Segues.navigationController, delay: 3.0)
     }
     
     func animateLogo() {
         
         UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: [], animations: {
+            
+            // Set logo alpha.
             self.parsleyLogo.alpha = 1
       
         }, completion: { [self]_ in
-            
             clickParsley()
-        
         })
     }
     
     func clickParsley() {
-        
-        // Animate position.
+ 
         parsleyLogo.center.y -= 2
         parsleyLogo.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
         parsleyLogo.alpha = 0.8
@@ -61,6 +53,7 @@ class LaunchScreenViewController: UIViewController {
         // Animate back to original position.
         UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.1, options: [], animations: {
 
+            // Transform y position.
             self.parsleyLogo.center.y += 2
             
             // Return original state.

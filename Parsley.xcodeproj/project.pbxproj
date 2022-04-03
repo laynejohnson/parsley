@@ -205,12 +205,10 @@
 		E873F84426DF9E4800700F3F /* Parsley */ = {
 			isa = PBXGroup;
 			children = (
-				E8F6685D2744361800B0FC0A /* Utilities */,
+				E8F6685D2744361800B0FC0A /* App Support */,
 				E87B8F8E26E11114008B185B /* Models */,
 				E87B8F8F26E1111B008B185B /* Views */,
 				E87B8F9026E11126008B185B /* Controllers */,
-				E873F84526DF9E4800700F3F /* AppDelegate.swift */,
-				E873F84726DF9E4800700F3F /* SceneDelegate.swift */,
 				E873F85126DF9E4900700F3F /* Assets.xcassets */,
 				E873F85626DF9E4900700F3F /* Info.plist */,
 			);
@@ -263,13 +261,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		E8F6685D2744361800B0FC0A /* Utilities */ = {
+		E8F6685D2744361800B0FC0A /* App Support */ = {
 			isa = PBXGroup;
 			children = (
+				E873F84726DF9E4800700F3F /* SceneDelegate.swift */,
+				E873F84526DF9E4800700F3F /* AppDelegate.swift */,
 				E890634026E262B2000F311F /* Constants.swift */,
 				E8F6685E2744363900B0FC0A /* Extensions.swift */,
 			);
-			path = Utilities;
+			path = "App Support";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

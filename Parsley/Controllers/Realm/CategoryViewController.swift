@@ -5,6 +5,7 @@
 //  Created by Layne Johnson on 9/9/21.
 
 // USE THIS VIEW CONTROLLER FOR REALM SETUP.
+// LIST VIEW CONTROLLER.
 
 import UIKit
 import RealmSwift
