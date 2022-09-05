@@ -70,7 +70,7 @@ class ItemViewController: UITableViewController {
             cell.accessoryType = item.done ? .checkmark : .none
             
             // Set accessory color.
-            cell.tintColor = #colorLiteral(red: 0.1450980392, green: 0.9215686275, blue: 0.6274509804, alpha: 1)
+            cell.tintColor = #colorLiteral(red: 0.09019607843, green: 0.6470588235, blue: 0.462745098, alpha: 1)
             
         } else {
             cell.textLabel?.text = "All todos completed! 🎉"
