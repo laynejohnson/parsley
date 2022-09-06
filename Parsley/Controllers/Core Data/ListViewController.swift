@@ -7,9 +7,9 @@
 // USE THIS VIEW CONTROLLER FOR CORE DATA SETUP.
 // USE LIST CLASS (NOT CATEGORY)
 
-import UIKit
-import CoreData
-
+//import UIKit
+//import CoreData
+//
 //class ListViewController: UITableViewController {
 //
 //    @IBOutlet weak var searchBar: UISearchBar!
@@ -24,11 +24,11 @@ import CoreData
 //        super.viewDidLoad()
 //
 //        // Set search bar icon color.
-//        searchBar.searchTextField.leftView?.tintColor = .black
+//        searchBar.searchTextField.leftView?.tintColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.3019607843, alpha: 1)
 //
 //        // Set search bar text color.
 //        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-//            textfield.textColor = UIColor.black
+//            textfield.textColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.3019607843, alpha: 1)
 //        }
 //
 //        // Set search bar background color.
@@ -36,6 +36,9 @@ import CoreData
 ////            textfield.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9647058824, blue: 0.9411764706, alpha: 1)
 //            textfield.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 //        }
+//
+//        // Accessibility.
+//        addButton.accessibilityLabel = "Add new list"
 //
 //        searchBar.delegate = self
 //

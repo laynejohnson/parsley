@@ -5,12 +5,14 @@
 //  Created by Layne Johnson on 9/1/21.
 //
 
-import UIKit
-import CoreData
-
+//import UIKit
+//import CoreData
+//
 //class TodoViewController: UITableViewController {
 //
 //    @IBOutlet weak var searchBar: UISearchBar!
+//    @IBOutlet weak var addItemButton: UIBarButtonItem!
+//
 //
 //    // Access to app delegate as an object to access persistentContainer (singleton).
 //    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -31,11 +33,11 @@ import CoreData
 //        // Do any additional setup after loading the view.
 //
 //        // Set search bar icon color.
-//        searchBar.searchTextField.leftView?.tintColor = .black
+//        searchBar.searchTextField.leftView?.tintColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.3019607843, alpha: 1)
 //
 //        // Set search bar text color.
 //        if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-//            textfield.textColor = UIColor.black
+//            textfield.textColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.3019607843, alpha: 1)
 //        }
 //
 //        // Set search bar background color.
@@ -43,6 +45,9 @@ import CoreData
 ////            textfield.backgroundColor = #colorLiteral(red: 0.9725490196, green: 0.9647058824, blue: 0.9411764706, alpha: 1)
 //            textfield.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 //        }
+//
+//        // Accessibility.
+//        addItemButton.accessibilityLabel = "Add new item"
 //
 //        searchBar.delegate = self
 //    }

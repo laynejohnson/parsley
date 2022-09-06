@@ -20,6 +20,9 @@ class LaunchScreenViewController: UIViewController {
         
         // Hide logo.
         parsleyLogo.alpha = 0
+        
+        // Add accessibility label.
+        parsleyLogo.accessibilityLabel = "Parsley Logo"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -33,7 +36,6 @@ class LaunchScreenViewController: UIViewController {
     }
     
     func animateLogo() {
-        
         UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5, options: [], animations: {
             
             // Set logo alpha.
@@ -45,7 +47,6 @@ class LaunchScreenViewController: UIViewController {
     }
     
     func clickParsley() {
- 
         parsleyLogo.center.y -= 2
         parsleyLogo.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
         parsleyLogo.alpha = 0.8

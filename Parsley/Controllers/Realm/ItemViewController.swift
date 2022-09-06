@@ -11,6 +11,7 @@ import RealmSwift
 
 class ItemViewController: UITableViewController {
     
+    @IBOutlet weak var addTodoButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     
     let realm = try! Realm()
@@ -18,7 +19,6 @@ class ItemViewController: UITableViewController {
     var items: Results<Item>?
     
     var selectedCategory : Category? {
-        
         // didSet keyword code block executes as soon as selectedList is set with value.
         didSet {
             loadItems()
@@ -29,18 +29,23 @@ class ItemViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        navigationItem.title = selectedCategory?.name
+
         // Set search bar icon color.
-        searchBar.searchTextField.leftView?.tintColor = .black
+        searchBar.searchTextField.leftView?.tintColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.3019607843, alpha: 1)
         
         // Set search bar text color.
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-            textfield.textColor = UIColor.black
+            textfield.textColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.3019607843, alpha: 1)
         }
         
         // Set search bar background color.
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
             textfield.backgroundColor = #colorLiteral(red: 0.9960784314, green: 1, blue: 1, alpha: 1)
         }
+        
+        // Accessibility.
+        addTodoButton.accessibilityLabel = "Add new item"
         
         searchBar.delegate = self
     }
@@ -70,7 +75,7 @@ class ItemViewController: UITableViewController {
             cell.accessoryType = item.done ? .checkmark : .none
             
             // Set accessory color.
-            cell.tintColor = #colorLiteral(red: 0.09019607843, green: 0.6470588235, blue: 0.462745098, alpha: 1)
+            cell.tintColor = #colorLiteral(red: 0.3707813621, green: 0.3627227545, blue: 0.3747773767, alpha: 1)
             
         } else {
             cell.textLabel?.text = "All todos completed! 🎉"

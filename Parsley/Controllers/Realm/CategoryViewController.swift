@@ -13,7 +13,7 @@ import RealmSwift
 class CategoryViewController: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var addListButton: UIBarButtonItem!
     
     let realm = try! Realm()
     
@@ -24,17 +24,20 @@ class CategoryViewController: UITableViewController {
         super.viewDidLoad()
         
         // Set search bar icon color.
-        searchBar.searchTextField.leftView?.tintColor = .black
+        searchBar.searchTextField.leftView?.tintColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.3019607843, alpha: 1)
         
         // Set search bar text color.
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-            textfield.textColor = UIColor.black
+            textfield.textColor = #colorLiteral(red: 0.2980392157, green: 0.2901960784, blue: 0.3019607843, alpha: 1)
         }
         
         // Set search bar background color.
         if let textfield = searchBar.value(forKey: "searchField") as? UITextField {
-            textfield.backgroundColor = #colorLiteral(red: 0.9960784314, green: 1, blue: 1, alpha: 1)
+            textfield.backgroundColor = #colorLiteral(red: 0.8901960784, green: 0.8823529412, blue: 0.9019607843, alpha: 1)
         }
+        
+        // Accessibility.
+        addListButton.accessibilityLabel = "Add new list"
         
         searchBar.delegate = self
         
